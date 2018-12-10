@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Dream Come True</title>
+  <icon>https://www.gravatar.com/avatar/f5a8eead513a7615c5bf6c259997c07a</icon>
+  <subtitle>小时候</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-12-10T11:30:06.843Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Huang@9</name>
+    <email>16619765923@163.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hello </title>
+    <link href="http://yoursite.com/2018/12/10/hello/"/>
+    <id>http://yoursite.com/2018/12/10/hello/</id>
+    <published>2018-12-10T11:30:03.000Z</published>
+    <updated>2018-12-10T11:30:06.843Z</updated>
+    
+    <content type="html"><![CDATA[<p>奈何桥边，一位女子跪在孟婆面前哀求：&ldquo;婆婆，我可不可以不喝这碗汤，我不想忘了他。&rdquo;<br><br>　　孟婆：&ldquo;人生苦楚，总逃不脱一个情字，你又何必如此执着？&rdquo;<br><br>　　女子哭：&ldquo;地府中人，自然不懂人间情爱？&rdquo;<br><br>　　孟婆放下手中汤碗，望着天上幽幽一叹：&ldquo;我怎会不懂，那时，他还不是月老，我也还不是孟婆&hellip;&hellip;&rdquo;</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;奈何桥边，一位女子跪在孟婆面前哀求：&amp;ldquo;婆婆，我可不可以不喝这碗汤，我不想忘了他。&amp;rdquo;&lt;br&gt;&lt;br&gt;　　孟婆：&amp;ldquo;人生苦楚，总逃不脱一个情字，你又何必如此执着？&amp;rdquo;&lt;br&gt;&lt;br&gt;　　女子哭：&amp;ldquo;地府中人，自然不懂人间情爱
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2018/12/10/hello-world/"/>
+    <id>http://yoursite.com/2018/12/10/hello-world/</id>
+    <published>2018-12-10T11:15:49.298Z</published>
+    <updated>2018-12-10T11:15:49.299Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

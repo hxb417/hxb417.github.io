@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[hello]]></title>
+    <url>%2F2018%2F12%2F10%2Fhello%2F</url>
+    <content type="text"><![CDATA[奈何桥边，一位女子跪在孟婆面前哀求：&ldquo;婆婆，我可不可以不喝这碗汤，我不想忘了他。&rdquo; 孟婆：&ldquo;人生苦楚，总逃不脱一个情字，你又何必如此执着？&rdquo; 女子哭：&ldquo;地府中人，自然不懂人间情爱？&rdquo; 孟婆放下手中汤碗，望着天上幽幽一叹：&ldquo;我怎会不懂，那时，他还不是月老，我也还不是孟婆&hellip;&hellip;&rdquo;]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F12%2F10%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
