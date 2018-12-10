@@ -3,11 +3,11 @@
   <title>Dream Come True</title>
   <icon>https://www.gravatar.com/avatar/f5a8eead513a7615c5bf6c259997c07a</icon>
   <subtitle>小时候</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <link href="/hxb417.github.io/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://hxb417.github.io/"/>
   <updated>2018-12-10T11:30:06.843Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://hxb417.github.io/</id>
   
   <author>
     <name>Huang@9</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>hello </title>
-    <link href="http://yoursite.com/2018/12/10/hello/"/>
-    <id>http://yoursite.com/2018/12/10/hello/</id>
+    <link href="https://hxb417.github.io/2018/12/10/hello/"/>
+    <id>https://hxb417.github.io/2018/12/10/hello/</id>
     <published>2018-12-10T11:30:03.000Z</published>
     <updated>2018-12-10T11:30:06.843Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2018/12/10/hello-world/"/>
-    <id>http://yoursite.com/2018/12/10/hello-world/</id>
+    <link href="https://hxb417.github.io/2018/12/10/hello-world/"/>
+    <id>https://hxb417.github.io/2018/12/10/hello-world/</id>
     <published>2018-12-10T11:15:49.298Z</published>
     <updated>2018-12-10T11:15:49.299Z</updated>
     
