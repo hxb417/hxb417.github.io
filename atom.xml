@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-11T06:07:22.963Z</updated>
+  <updated>2018-12-11T08:39:00.288Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mongodb</title>
+    <link href="http://yoursite.com/2018/12/11/mongodb/"/>
+    <id>http://yoursite.com/2018/12/11/mongodb/</id>
+    <published>2018-12-11T08:37:38.000Z</published>
+    <updated>2018-12-11T08:39:00.288Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1.MongoDB������&lt;br&gt;    1.��������:&lt;br&gt;       sudo mongod&lt;br&gt;    2.�����ͻ���&lt;br&gt;        mongo&lt;/p&gt;
+&lt;p&gt;2.���ݿ�Ĳ���:&lt;br&gt;    1.�鿴Ĭ�ϵ����ݿ�   
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>first</title>
+    <link href="http://yoursite.com/2018/12/11/first/"/>
+    <id>http://yoursite.com/2018/12/11/first/</id>
+    <published>2018-12-11T08:18:24.000Z</published>
+    <updated>2018-12-11T08:19:58.693Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;奈何桥边，一位女子跪在孟婆面前哀求：婆婆，我可不可以不喝这碗汤，我不想忘了他。孟婆：人生苦楚，总逃不脱一个情字，你又何必如此执着？女子哭：地府中人，自然不懂人间情爱？孟婆放下手中汤碗，望着天上幽幽一叹：我怎会不懂，那时，他还不是月老，我也还不是孟婆&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
