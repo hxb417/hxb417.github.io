@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-11T08:19:58.693Z</updated>
+  <updated>2018-12-11T09:27:07.462Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mongo</title>
+    <link href="http://yoursite.com/2018/12/11/mongo/"/>
+    <id>http://yoursite.com/2018/12/11/mongo/</id>
+    <published>2018-12-11T09:25:48.000Z</published>
+    <updated>2018-12-11T09:27:07.462Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1.MongoDB的启动&lt;br&gt;1.启动服务:&amp;amp;nbspsudo mongod    2.启动客户端:mongo&lt;/p&gt;
+&lt;p&gt;2.数据库的操作:&lt;br&gt;　1.查看默认的数据库          db&lt;br&gt;　2.查看所有的数据库          show
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>first</title>

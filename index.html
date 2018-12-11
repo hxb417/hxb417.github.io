@@ -337,6 +337,184 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/mongo/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dream to reality">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/11/mongo/" itemprop="url">mongo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-11T17:25:48+08:00">
+                2018-12-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+		  
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.MongoDB的启动<br>1.启动服务:&amp;nbspsudo mongod    2.启动客户端:mongo</p>
+<p>2.数据库的操作:<br>　1.查看默认的数据库          db<br>　2.查看所有的数据库          show dbs<br>　3.查看所有的集合(表)        show collections<br>　4.查看集合中的文档(行)      db.xx.find()<br>　5.删除数据库               先进入,再db.dropDatabase()</p>
+<p>3.集合(表)的操作:<br>　1.查看所有的集合   show collections<br>　2.创建集合        db.createCollection(“集合名字”)<br>　3.删除集合        db.xx.drop()</p>
+<p>4.文档内容的增删改:<br>　1.数据的类型null、integer、 DateObjectID、string、boolean、Array;<br>　2.增加数据:db.xx.insert({key:Value})</p>
+<p>　//1.新增一条数据<br>    db.one.insert({_id:1,name:”张三”,age:28  })<br>    db.one.insert({name:”老王”,age:88  })<br>　//2.先字典 后赋值<br>    dict = {_id:2,name:”小王吧”,age:18  }<br>    db.one.insert(dict)<br>3.删除<br>    db.xx.remove({条件})</p>
+<pre><code>//1.删除老王 
+db.one.remove({name:&quot;老王&quot;})
+//2.删除所有的男生(默认 符合条件的都删除)
+    db.one.remove({gender:true})
+//3. 只删除 符合条件的 第一个 justOne
+    db.one.remove({gender:false},{justOne:true})
+//4.全部删除数据
+    db.one.remove({})
+</code></pre><p>4.改 update<br>    db.xx.update({查找条件},{修改内容})</p>
+<pre><code>//1.修改 小明 的名字 根据id
+//2. like
+//默认 其他的字段删除了
+    db.one.update({_id:4},{name:&quot;大明&quot;})
+    db.one.update({_id:5},{like:&quot;男朋友&quot;})
+
+//2.只想修改指定的字段; 其他的不变$set
+    db.one.update({_id:7},{$set:{name:&quot;霜霜&quot;}})
+
+//3. 默认符合条件的只修改一个;全部修改 multi
+//男生的年龄 改成 30谁
+db.one.update({gender:true},{$set:{age:30}})
+//将女生的年龄 全部修改成 12岁
+db.one.update({gender:false},{$set:{age:12}},{multi:true})
+</code></pre><p>5.文档的基本查询操作:<br>1.基本查询<br>    db.xx.find({查找条件}).pretty()<br>    1.1: db.xx.find() 查找所有的内容<br>    1.2: 查找所有的女生:返回所有符合条件的内容<br>    db.stu.find({gender:false})<br>    1.3:只返回符合条件的第一个<br>    db.stu.findOne({gender:true})<br>2.条件运算: $lt $gt $lte $ne<br>    db.xx.find({字段:{运算符:值}})<br>    //1.筛选年龄大于20岁的人<br>    db.stu.find({age:{$gt:20}})<br>    //2.筛选年龄 小于等于18岁的<br>    db.stu.find({age:{$lte:18})<br>    //3. 年龄不等于 45岁<br>    db.stu.find({age:{$ne:45}})<br>3.逻辑运算: $and $or<br>    db.xx.find({运算符:[{条件1},{条件1}]})</p>
+<pre><code>1. $and 其实find默认多条件就是and
+db.stu.find({age:16,gender:true})
+db.stu.find({$and:[{age:16},{gender:true}])
+
+2. $or 
+// 年龄大约20岁,或者false 女生
+db.stu.find({$or:[{age:{$gt:20}},{gender:false}]})
+
+3. $and 和 $or 混用的关系
+// 年龄下雨45岁或者是女生; 必须是来自桃花岛
+db.stu.find({$ang:[{$or:[{age:{$lt:45}},{gender:false}]},{hometown:&quot;桃花岛&quot;}]
+</code></pre><p>})<br>    4.范围运算:$in  $nin<br>    db.xx.find({字段:{运算符:[值]}})<br>    //1. 18 20 40的岁<br>    db.stu.find({age:{$in:[18,20,40]}})<br>    //2. 来自 大理 或者  蒙古<br>    db.stu.find({hometown:{$in:[“大理”,”蒙古”]}})<br>    5.正则表达式:<br>    1.db.xx.find({字段:/正则/})<br>    2.db.xx.find({字段:{$regex:”正则”}})<br>    6.自定义函数:<br>    db.xx.find({$where:待返回值的匿名函数})<br>    //年龄小于 18的人<br>    //this 操作的内容<br>    db.stu.find({$where:function (){return this.age &lt; 18}})</p>
+<p>6.查询结果的显示:<br>        skip(n): 跳过几个在显示<br>        limit(n): 允许显示几个    </p>
+<pre><code>db.stu.find().skip(2).limit(3)
+        如果 skip和limit混用 结果一样的
+投影: 允许查看的字段
+      db.xx.find({查询条件},{投影的条件字段:1})
+      db.stu.find({gender:false},{_id:1})
+排序: 升序 1  降序 -1 sort({字段:1})
+     db.stu.find().sort({age:-1,_id:-1})
+统计:count()
+     db.xx.count({条件})
+     db.xx.find().count()
+
+     db.stu.count({age:{$gt:30}})
+     db.stu.find({age:{$gt:30}}).count()
+去重:distinct()
+    db.xx.distinct(&quot;去重的字段&quot;,{条件})
+    // 取出年龄小于60岁一下 人的籍贯
+    db.stu.distinct(&quot;hometown&quot;,{age:{$lt:60}})
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/first/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -620,7 +798,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
