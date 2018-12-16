@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-11T06:07:22.963Z</updated>
+  <updated>2018-12-12T14:22:30.862Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2018/12/12/hello-world/"/>
-    <id>http://yoursite.com/2018/12/12/hello-world/</id>
-    <published>2018-12-12T09:40:30.028Z</published>
-    <updated>2018-12-11T06:07:22.963Z</updated>
+    <title>mongotwo</title>
+    <link href="http://yoursite.com/2018/12/12/mongotwo/"/>
+    <id>http://yoursite.com/2018/12/12/mongotwo/</id>
+    <published>2018-12-12T14:12:17.000Z</published>
+    <updated>2018-12-12T14:22:30.862Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,9 @@
       
         
         
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+          &lt;p&gt;1.聚合查询:管道&lt;br&gt;        db.xx.aggregate([{管道1},{管道2},{管道3}])&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$group: 分组:
+        
         
       
     

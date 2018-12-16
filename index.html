@@ -337,7 +337,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/12/mongotwo/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huang">
@@ -356,7 +356,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/12/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2018/12/12/mongotwo/" itemprop="url">mongotwo</a></h1>
         
 
         <div class="post-meta">
@@ -368,7 +368,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T17:40:30+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T22:12:17+08:00">
                 2018-12-12
               </time>
             
@@ -408,15 +408,107 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p>1.聚合查询:管道<br>        db.xx.aggregate([{管道1},{管道2},{管道3}])</p>
+<pre><code>$group: 分组:
+         db.xx.aggregate([{$group:{_id:&quot;$字段&quot;}}])
+
+         // 将数据  按照 性别分成两种组
+         db.new.aggregate([
+             $group:{
+                 _id:&quot;$gender&quot;
+             }
+         ])
+         //按照性别分组 ,求出每组的年龄平均值 表达式
+          // $avg $sum $max $min $last $first $push
+         db.new.aggregate({
+             $group:{
+                 _id:&quot;$gender&quot;,
+                 avg_age:{$avg:&quot;$age&quot;}
+             }
+         })
+
+         // 按照籍贯分组 求每个地方人的年龄之和
+         db.new.aggregate({
+             $group:{
+                 _id:&quot;$hometown&quot;,
+                 avg_age:{$sum:&quot;$age&quot;}
+             }
+
+         })
+
+         // 按照 性别分组; 想求出 最后一个人的年龄
+         db.new.aggregate({
+             $group:{
+                 _id:&quot;$gender&quot;,
+                 last_age:{$last:&quot;$age&quot;}
+             }
+         })
+
+         //push 将获取的字段 按照分组 显示
+         //按照性别分组 , 求出 每组的籍贯有哪些
+         db.new.aggregate({
+             $group:{
+                 _id:&quot;$gender&quot;,
+                 address:{$push:&quot;$name&quot;}
+             }
+         })
+
+$match: 比较对比 和find功能一致; 区别在于使用管道
+         db.xx.find({条件})
+         db.xx.aggregate({$match:{比较的条件}})
+
+         // 求出 年龄大于18岁的人
+         db.stu.find({age:{$gt:18}})
+         db.stu.aggregate({$match:{age:{$gt:18}}})
+
+         // 求出 年龄小于40岁; 按照性别分组 两组
+         db.new.aggregate({
+             $match:{age:{$gt:40}}},
+             {$group:{
+                 _id:&quot;$gender&quot;,
+                 name_list:{$push:&quot;$name&quot;}
+             }}
+         )
+
+$project: 投影 :允许查看某个字段
+         db.xx.aggregate({$project:{字段:1,自段:0}})
+
+         //1. 求出年龄不等于18; 按照性别分组求出name;只显示名字
+         db.stu.aggregate(
+             {$match:{age:{$ne:20}}},
+             {$group:{_id:&quot;$gender&quot;,all_name:{$push:&quot;$name&quot;}}},
+             {$project:{_id:0,all_name:1}}
+         )
+
+$sort: 排序 1 升序 -1降序
+        //1.按照籍贯 来自 大理和桃花岛;一 年龄降序
+         db.stu.aggregate(
+             {$match:{hometown:{$in:[&quot;大理&quot;,&quot;桃花岛&quot;]}}},
+             {$sort:{age:-1}}
+         )
+$limit: 允许显示几个
+$skip: 跳过几个查看
+      注意点: 因为管道是有先后顺序; 所以呢一般都不掉换顺序; 先跳后允许查看几个
+       //先找 45以下 ;再 安籍贯 求平均值, 在 降序, 在投影
+       db.stu.aggregate(
+           {$match:{age:{$lte:45}}},
+           {$group:{_id:&quot;$hometown&quot;,avg_age:{$avg:&quot;$age&quot;}}},
+           {$sort:{avg_age:-1}},
+           {$project:{_id:1,avg_age:1}},
+           {$skip:1},
+           {$limit:2} 
+       )
+
+$unwind: 将一组 列表的数据 分开成多个文档 
+       // 筛选 安性别分两组;  求出每组人的名字
+       db.stu.aggregate(
+           {$group:{_id:&quot;$gender&quot;,all_name:{$push:&quot;$name&quot;}}},
+           {$unwind:&quot;$all_name&quot;}
+       )
+</code></pre><p>2.索引操作 : 通过索引查询 效率最高 时间<br>2.1 批量的创建数据<br>    for (index = 0; index &lt; 200000; index++) {<br>        db.stu.insert(<br>            {<br>                _id:index,<br>                name:”name”+index,<br>                age:index<br>            }<br>        )<br>    }</p>
+<p>//3. 系统自己分配id 记不住<br>// 3.1 自定义索引<br>db.stu.ensureIndex({name:1})<br>db.stu.ensureIndex({age:1})</p>
+<p>//3.2 查看所有的 索引<br>db.stu.getIndexes()</p>
+<p>//3.3 删除索引<br>db.stu.dropIndex(“name_1”)</p>
 
           
         
